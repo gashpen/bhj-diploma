@@ -1,13 +1,14 @@
 const { response } = require("express");
-
 /**
  * Основная функция для совершения запросов
  * на сервер.
- * */
+**/
+
 const createRequest = (options = {}) => {
     const xhr = new XMLHttpRequest();
     const formData = new FormData()
-  
+    const responseServer = options.callback;
+
     if (options.method === 'GET') {
       xhr.open(options.method, `${options.url}?${options.data.mail}&${options.data.password}`);
       xhr.send();
@@ -26,11 +27,11 @@ const createRequest = (options = {}) => {
     xhr.addEventListener('readystatechange', () => {
   
       if (xhr.readyState === 4 && xhr.status === 200) {
-       let response = xhr.responseText
-        console.log(response)
+       responseServer(xhr.responseText)
+      
       } else {
-       let err = xhr.responseStatus
-        console.log(err)
+       responseServer(xhr.responseStatus)
+       
       }
     });
   };
