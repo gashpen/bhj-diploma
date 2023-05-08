@@ -5,6 +5,7 @@ const { response } = require("express");
 **/
 
 const createRequest = (options = {}) => {
+
     const xhr = new XMLHttpRequest();
     const formData = new FormData()
     const responseServer = options.callback;
@@ -27,11 +28,10 @@ const createRequest = (options = {}) => {
     xhr.addEventListener('readystatechange', () => {
   
       if (xhr.readyState === 4 && xhr.status === 200) {
-       responseServer(xhr.responseText)
-      
+       responseServer(err = null, xhr.responseText);
       } else {
-       responseServer(xhr.responseStatus)
-       
+       responseServer(xhr.responseStatus);
       }
     });
+
   };
