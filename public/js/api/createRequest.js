@@ -1,37 +1,42 @@
 const { response } = require("express");
-/**
- * Основная функция для совершения запросов
- * на сервер.
-**/
 
 const createRequest = (options = {}) => {
 
-    const xhr = new XMLHttpRequest();
-    const formData = new FormData()
-    const responseServer = options.callback;
-
-    if (options.method === 'GET') {
-      xhr.open(options.method, `${options.url}?${options.data.mail}&${options.data.password}`);
-      xhr.send();
-    };
+  const xhr = new XMLHttpRequest();
+  const formData = new FormData();
+  const responseServer = options.callback;
   
-    if (options.method != 'GET') {
-      formData.append('mail', options.data.mail);
-      formData.append('password', options.data.password);
-  
-      xhr.open(options.method, options.url);
-      xhr.send(formData);
-    };
-  
-    xhr.responseType = 'json';
-  
-    xhr.addEventListener('readystatechange', () => {
-  
-      if (xhr.readyState === 4 && xhr.status === 200) {
-       responseServer(err = null, xhr.responseText);
-      } else {
-       responseServer(xhr.responseStatus);
-      }
-    });
-
+  let arr = [];
+  for (let elem in options.data) {
+    arr.push(options.data[elem]);
   };
+
+  if (options.method === 'GET') {
+    xhr.open(options.method, `${options.url}?${arr[0]}&${arr[1]}`);
+    xhr.send();
+  };
+
+  if (options.method != 'GET') {
+    formData.append('mail', arr[0]);
+    formData.append('password', arr[1]);
+
+    xhr.open(options.method, options.url);
+    xhr.send(formData);
+  };
+
+  xhr.responseType = 'json';
+
+  xhr.addEventListener('load', () => {
+    responseServer(err = null, xhr.responseText);
+  });
+
+  xhr.addEventListener('error', () => {
+    responseServer(xhr.responseStatus);
+  })
+};
+
+
+
+
+
+
