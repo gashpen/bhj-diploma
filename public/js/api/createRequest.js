@@ -1,5 +1,3 @@
-const { response } = require("express");
-
 const createRequest = (options = {}) => {
 
   const xhr = new XMLHttpRequest();
@@ -11,28 +9,22 @@ const createRequest = (options = {}) => {
     arr.push(options.data[elem]);
   };
 
-  if (options.method === 'GET') {
-    xhr.open(options.method, `${options.url}?${arr[0]}&${arr[1]}`);
-    xhr.send();
-  };
-
-  if (options.method != 'GET') {
-    formData.append('mail', arr[0]);
-    formData.append('password', arr[1]);
-
-    xhr.open(options.method, options.url);
-    xhr.send(formData);
-  };
+  options.method === 'GET' ?  xhr.open(options.method, `${options.url}?${arr[0]}&${arr[1]}`) : ( 
+    formData.append('mail', arr[0]),
+    formData.append('password', arr[1]),
+    xhr.open(options.method, options.url))
+ 
+  options.method === 'GET' ?  xhr.send() : xhr.send(formData);
 
   xhr.responseType = 'json';
 
   xhr.addEventListener('load', () => {
-    responseServer(err = null, xhr.responseText);
+    responseServer(err = null,response = xhr.responseText);
   });
 
   xhr.addEventListener('error', () => {
-    responseServer(xhr.responseStatus);
-  })
+    responseServer(err = xhr.responseStatus);
+  });
 };
 
 
