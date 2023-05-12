@@ -6,18 +6,15 @@
 const {xhr, createRequest} = require('./createRequest')
 
 class Entity {
-  
-  
   /**
    * Запрашивает с сервера список данных.
    * Это могут быть счета или доходы/расходы
    * (в зависимости от того, что наследуется от Entity)
    * */
   static list(data, callback){
-    
-    for(elem in data){
-      
-    }
+    xhr.open('GET',Entity.URL);
+    xhr.send()
+    createRequest({data, callback});
   }
 
   /**
@@ -26,7 +23,9 @@ class Entity {
    * что наследуется от Entity)
    * */
   static create(data, callback) {
-
+    xhr.open('PUT',Entity.URL);
+    xhr.send()
+    createRequest({data, callback});
   }
 
   /**
@@ -34,6 +33,8 @@ class Entity {
    * (в зависимости от того, что наследуется от Entity)
    * */
   static remove(data, callback ) {
-
+    xhr.open('DELETE',Entity.URL);
+    xhr.send()
+    createRequest({data, callback});
   }
 }

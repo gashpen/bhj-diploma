@@ -1,3 +1,5 @@
+const { createRequest } = require("./createRequest");
+
 /**
  * Класс Account наследуется от Entity.
  * Управляет счетами пользователя.
@@ -8,6 +10,6 @@ class Account extends Entity {
    * Получает информацию о счёте
    * */
   static get(id = '', callback){
-
+    createRequest(id,callback)
   }
 }
