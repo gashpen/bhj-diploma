@@ -4,7 +4,7 @@ const createRequest = (options = {}) => {
   const formData = new FormData();
   const responseServer = options.callback;
   
-  for (let elem in options.data) {
+  for (elem in options.data) {
 
     if(options.method === 'GET'){
       xhr.open(options.method, options.data[elem]);
