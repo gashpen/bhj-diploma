@@ -9,7 +9,6 @@ const createRequest = (options = {}) => {
     if(options.method === 'GET'){
       xhr.open(options.method, options.data[elem]);
     } else {
-      formData.append('data',options.data[elem]);
       xhr.open(options.method, options.url);
     }
   };
@@ -19,10 +18,15 @@ const createRequest = (options = {}) => {
   xhr.responseType = 'json';
 
   xhr.addEventListener('load', () => {
-    responseServer(err = null,response = xhr.responseText);
+    responseServer(err = null,response = JSON.parse(xhr.responseText));
   });
 
   xhr.addEventListener('error', () => {
-    responseServer(err = xhr.responseStatus);
+    responseServer(err = JSON.parse(xhr.responseStatus));
   });
+};
+
+module.exports = {
+  createRequest,
+  xhr
 };

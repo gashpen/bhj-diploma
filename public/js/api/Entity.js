@@ -1,8 +1,13 @@
 /**
+ *
  * Класс Entity - базовый для взаимодействия с сервером.
  * Имеет свойство URL, равно пустой строке.
  * */
+const {xhr, createRequest} = require('./createRequest')
+
 class Entity {
+  
+  
   /**
    * Запрашивает с сервера список данных.
    * Это могут быть счета или доходы/расходы
@@ -10,6 +15,9 @@ class Entity {
    * */
   static list(data, callback){
     
+    for(elem in data){
+      
+    }
   }
 
   /**
