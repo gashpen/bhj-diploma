@@ -3,10 +3,6 @@ const createRequest = (options = {}) => {
   const xhr = new XMLHttpRequest();
   const formData = new FormData();
   const responseServer = options.callback;
-  
-for(elem in options){
-  console.log(elem)
-}
 
   if(options.method === 'GET'){
     xhr.open(options.method, options.data);

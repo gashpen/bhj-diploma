@@ -1,10 +1,31 @@
-const {xhr, createRequest} = require('./createRequest')
-/**
- * Класс Transaction наследуется от Entity.
- * Управляет счетами пользователя.
- * Имеет свойство URL со значением '/transaction'
- * */
 class Transaction extends Entity {
-    
-}
 
+    static url = '/transaction';  
+
+  list(data, callback){
+    createRequest({
+        url: this.URL,
+        data,
+        method:'GET',
+        callback
+    });
+  }
+  create(data, callback) {
+    createRequest({
+      url: this.URL,
+      data,
+      method:'PUT',
+      callback
+    });
+  }
+
+  remove(data, callback ) {
+    createRequest({
+      url: this.URL,
+      data,
+      method:'DELETE',
+      callback
+    });
+  }
+      
+};
