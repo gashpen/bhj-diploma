@@ -4,6 +4,8 @@
  * и за кнопки меню
  * */
 class Sidebar {
+
+  
   /**
    * Запускает initAuthLinks и initToggleButton
    * */
@@ -19,6 +21,13 @@ class Sidebar {
    * */
   static initToggleButton() {
 
+    this.sidebarToggle = document.querySelector('.sidebar-toggle');
+
+    this.sidebarToggle.addEventListener('click',(e)=>{
+
+        this.sidebarToggle.classList.toggle('.sidebar-open')
+      
+    });
   }
 
   /**

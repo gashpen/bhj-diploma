@@ -1,29 +1,32 @@
 const createRequest = (options = {}) => {
+  let xhr = new XMLHttpRequest();
+  xhr.responseType = "json";
+  let { url, data, method, callback } = options;
 
-  const xhr = new XMLHttpRequest();
-  const formData = new FormData();
-  const responseServer = options.callback;
+  let formData = new FormData();
 
-  if(options.method === 'GET'){
-    xhr.open(options.method, options.data);
+  if (options.method == "GET") {
+    url = url + "?";
+    for (let key in data) {
+      url += key + "=" + data[key] + "&";
+    }
+    url = url.slice(0, -1);
   } else {
-    xhr.open(options.method, options.url);
+    for (let key in data) {
+      formData.append(key, data[key]);
+    }
   }
-  
-  options.method === 'GET' ?  xhr.send() : xhr.send(formData);
 
-  xhr.responseType = 'json';
+  xhr.open(options.method, url);
+  xhr.send(formData);
 
-  xhr.addEventListener('load', () => {
-    responseServer(err = null,response = JSON.parse(xhr.responseText));
-  });
-
-  xhr.addEventListener('error', () => {
-    responseServer(err = JSON.parse(xhr.responseStatus));
-  });
-};
-
-module.exports = {
-  createRequest,
-  xhr
+  try {
+    xhr.addEventListener("readystatechange", function () {
+      if (this.readyState == xhr.DONE && xhr.status === 200) {
+        options.callback(xhr.response.error, xhr.response);
+      }
+    });
+  } catch (error) {
+    options.callback(error);
+  }
 };
