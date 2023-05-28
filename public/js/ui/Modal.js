@@ -6,44 +6,40 @@
  * закрытие имеющихся окон
  **/
 class Modal {
-  /**
-   * Устанавливает текущий элемент в свойство element
-   * Регистрирует обработчики событий с помощью Modal.registerEvents()
-   * Если переданный элемент не существует,
-   * необходимо выкинуть ошибку.
-   * */
   
   constructor(element){
-   
+
+    if(!element){
+      throw new Error('Пустой элемент'); 
+    }
+      this.element = element;
+      this.registerEvents();  
   }
 
-  /**
-   * При нажатии на элемент с data-dismiss="modal"
-   * должен закрыть текущее окно
-   * (с помощью метода Modal.onClose)
-   * */
   registerEvents() {
+    const closeBtn = document.querySelectorAll('[data-dismiss="modal"]');
+    closeBtn.forEach((elemBtn)=>{
+      elemBtn.addEventListener('click',(e)=>{
+        this.onClose(e);
+      });
+    });
+  };
 
-  }
-
-  /**
-   * Срабатывает после нажатия на элементы, закрывающие окно.
-   * Закрывает текущее окно (Modal.close())
-   * */
   onClose(e) {
+    this.close();
+    e.preventDefault();
+  };
 
-  }
-  /**
-   * Открывает окно: устанавливает CSS-свойство display
-   * со значением «block»
-   * */
-  open() {
+  open() { 
 
-  }
-  /**
-   * Закрывает окно: удаляет CSS-свойство display
-   * */
+    this.element.style.display = 'block';
+
+  };
+  
   close(){
 
-  }
-}
+    this.element.style.display = 'none';
+
+  };
+  
+};

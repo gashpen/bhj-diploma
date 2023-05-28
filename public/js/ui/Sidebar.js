@@ -23,9 +23,9 @@ class Sidebar {
 
     this.sidebarToggle = document.querySelector('.sidebar-toggle');
 
-    this.sidebarToggle.addEventListener('click',(e)=>{
+    this.sidebarToggle.addEventListener('click',()=>{
 
-        this.sidebarToggle.classList.toggle('.sidebar-open')
+        this.sidebarToggle.closest('body').classList.toggle('sidebar-open');
       
     });
   }
@@ -38,6 +38,11 @@ class Sidebar {
    * выходу устанавливает App.setState( 'init' )
    * */
   static initAuthLinks() {
-
+     document.querySelector('.menu-item_login').addEventListener('click',()=>{
+        App.getModal('login').open()
+     })
+     document.querySelector('.menu-item_register').addEventListener('click',()=>{
+      App.getModal('register').open()
+   })
   }
 }
