@@ -1,6 +1,6 @@
 class User {
   
-  static url = '/user';
+  static URL = '/user';
   /**
    * Устанавливает текущего пользователя в
    * локальном хранилище.
@@ -61,7 +61,6 @@ class User {
         if (response && response.user) {
           this.setCurrent(response.user);
         }
-
         callback(err, response);
       },
     });

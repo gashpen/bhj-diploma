@@ -1,6 +1,6 @@
 class Entity {
 
-  static url = '';
+  static URL = '';
 
   static list(data, callback){
     createRequest({

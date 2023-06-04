@@ -5,7 +5,7 @@ const createRequest = (options = {}) => {
 
   let formData = new FormData();
 
-  if (options.method == "GET") {
+  if (method == "GET") {
     url = url + "?";
     for (let key in data) {
       url += key + "=" + data[key] + "&";
@@ -14,19 +14,17 @@ const createRequest = (options = {}) => {
   } else {
     for (let key in data) {
       formData.append(key, data[key]);
-    }
+     }
   }
+  
+  xhr.addEventListener("load",()=>{
+      callback(xhr.response.error, xhr.response);
 
-  xhr.open(options.method, url);
-  xhr.send(formData);
-
+  });
   try {
-    xhr.addEventListener("readystatechange", function () {
-      if (this.readyState == xhr.DONE && xhr.status === 200) {
-        options.callback(xhr.response.error, xhr.response);
-      }
-    });
+    xhr.send(formData);
+    xhr.open(method, url);  
   } catch (error) {
-    options.callback(error);
+    callback(error);
   }
 };

@@ -1,6 +1,6 @@
 class Account extends Entity {
   
-  static url = '/account/';
+  static URL = '/account/';
 
   static get(id = '', callback){
 

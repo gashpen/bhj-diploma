@@ -26,7 +26,7 @@ class Sidebar {
     this.sidebarToggle.addEventListener('click',()=>{
 
         this.sidebarToggle.closest('body').classList.toggle('sidebar-open');
-      
+        this.sidebarToggle.closest('body').classList.toggle('sidebar-collapse')
     });
   }
 
