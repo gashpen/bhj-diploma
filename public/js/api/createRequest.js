@@ -16,14 +16,15 @@ const createRequest = (options = {}) => {
       formData.append(key, data[key]);
      }
   }
-  
+
   xhr.addEventListener("load",()=>{
       callback(xhr.response.error, xhr.response);
-
   });
+  
+  
   try {
-    xhr.send(formData);
-    xhr.open(method, url);  
+    xhr.open(method, url);
+    xhr.send(formData);  
   } catch (error) {
     callback(error);
   }
