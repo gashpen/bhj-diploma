@@ -6,7 +6,6 @@ class Account extends Entity {
 
       createRequest({
         url: this.URL + id,
-        data,
         method:'GET',
         callback,
         id

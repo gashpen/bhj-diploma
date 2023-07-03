@@ -34,16 +34,6 @@
       "name": "Бизнес",
       "user_id": "1",
       "id": "3"
-    },
-    {
-      "name": "Константин ",
-      "user_id": "ewpiufcslihhdj02",
-      "id": "ewpiub3glihqzk5a"
-    },
-    {
-      "name": "324",
-      "user_id": "ewpiufcslihhdj02",
-      "id": "ewpiujlclihqzsy7"
     }
   ],
   "transactions": [
@@ -181,114 +171,6 @@
       "sum": 300000,
       "type": "expense",
       "user_id": "1"
-    },
-    {
-      "id": "ewpiufyslj17zc1o",
-      "type": "income",
-      "name": "Константин ",
-      "sum": 333,
-      "account_id": "ewpiub3glihqzk5a",
-      "user_id": "ewpiufcslihhdj02",
-      "created_at": "2023-06-18T09:23:02.459Z"
-    },
-    {
-      "id": "ewpiubcolj17zim1",
-      "type": "expense",
-      "name": "23423",
-      "sum": 50,
-      "account_id": "ewpiub3glihqzk5a",
-      "user_id": "ewpiufcslihhdj02",
-      "created_at": "2023-06-18T09:23:10.969Z"
-    },
-    {
-      "id": "ewpiug0glj180w3e",
-      "type": "income",
-      "name": "Константин ",
-      "sum": 50,
-      "account_id": "ewpiub3glihqzk5a",
-      "user_id": "ewpiufcslihhdj02",
-      "created_at": "2023-06-18T09:24:15.097Z"
-    },
-    {
-      "id": "ewpiukz8lj181233",
-      "type": "income",
-      "name": "Константин ",
-      "sum": 234234324,
-      "account_id": "ewpiub3glihqzk5a",
-      "user_id": "ewpiufcslihhdj02",
-      "created_at": "2023-06-18T09:24:22.862Z"
-    },
-    {
-      "id": "ewpiu1bslj18esk0",
-      "type": "income",
-      "name": "Pixel",
-      "sum": 50,
-      "account_id": "ewpiub3glihqzk5a",
-      "user_id": "ewpiufcslihhdj02",
-      "created_at": "2023-06-18T09:35:03.695Z"
-    },
-    {
-      "id": "ewpiu8fclj18h29n",
-      "type": "income",
-      "name": "Константин ",
-      "sum": 50,
-      "account_id": "ewpiub3glihqzk5a",
-      "user_id": "ewpiufcslihhdj02",
-      "created_at": "2023-06-18T09:36:49.594Z"
-    },
-    {
-      "id": "ewpiujaglj18ha0f",
-      "type": "expense",
-      "name": "Константин ",
-      "sum": 3424324323432,
-      "account_id": "ewpiub3glihqzk5a",
-      "user_id": "ewpiufcslihhdj02",
-      "created_at": "2023-06-18T09:36:59.630Z"
-    },
-    {
-      "id": "ewpiup8lj192t78",
-      "type": "income",
-      "name": "Константин ",
-      "sum": 200,
-      "account_id": "ewpiub3glihqzk5a",
-      "user_id": "ewpiufcslihhdj02",
-      "created_at": "2023-06-18T09:53:44.275Z"
-    },
-    {
-      "id": "ewpiu85olj192zxa",
-      "type": "income",
-      "name": "Константин ",
-      "sum": 50,
-      "account_id": "ewpiub3glihqzk5a",
-      "user_id": "ewpiufcslihhdj02",
-      "created_at": "2023-06-18T09:53:52.989Z"
-    },
-    {
-      "id": "ewpiufqolj1b884f",
-      "type": "income",
-      "name": "Константин ",
-      "sum": 123123123123,
-      "account_id": "ewpiub3glihqzk5a",
-      "user_id": "ewpiufcslihhdj02",
-      "created_at": "2023-06-18T10:53:56.127Z"
-    },
-    {
-      "id": "ewpiufqolj1b8dsl",
-      "type": "income",
-      "name": "Константин ",
-      "sum": 342432432343221340000,
-      "account_id": "ewpiub3glihqzk5a",
-      "user_id": "ewpiufcslihhdj02",
-      "created_at": "2023-06-18T10:54:03.477Z"
-    },
-    {
-      "id": "ewpiucjwlj1bhf9b",
-      "type": "income",
-      "name": "Константин ",
-      "sum": 4,
-      "account_id": "ewpiub3glihqzk5a",
-      "user_id": "ewpiufcslihhdj02",
-      "created_at": "2023-06-18T11:01:05.278Z"
     }
   ]
 }

@@ -45,8 +45,10 @@ class Sidebar {
         App.getModal('register').open()
      })
      document.querySelector('.menu-item_logout').addEventListener('click',()=>{
-        User.logout()
-        App.setState('init')
+        User.logout((err, response) => {
+         if (response && response.success) {
+            App.setState('init') 
+         }
      })
-  }
-}
+  })
+}}

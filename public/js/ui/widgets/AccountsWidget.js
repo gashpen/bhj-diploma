@@ -107,7 +107,7 @@ class AccountsWidget {
    * */
   getAccountHTML(item){
     let { id, name , sum } = item;
-    return `<li class="active account" data-id="${id}">
+    return `<li class="account" data-id="${id}">
                 <a href="#">
                     <span>${name}</span>
                     <span>${sum}</span>

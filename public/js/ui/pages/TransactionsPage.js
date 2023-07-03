@@ -57,7 +57,7 @@ class TransactionsPage {
    * */
   removeAccount() {
 
-    if(!this.lastOptions()){
+    if(!this.lastOptions){
       return
     }
 
@@ -67,7 +67,8 @@ class TransactionsPage {
       Account.remove({id}, (err, response) => {
         if (response && response.success) {
           App.updateWidgets();
-          App.updateForms()
+          App.updateForms();
+          this.clear()
         }
       })
     }
@@ -82,9 +83,10 @@ class TransactionsPage {
   removeTransaction( id ) {
 
     if (confirm('Вы действительно хотите удалить счет?')){
-      Transactions.remove({id} , (err, response) => {
+      Transaction.remove({id} , (err, response) => {
         if (response && response.success) {
-          App.update()
+          App.update();
+          this.clear();
         }
       })
     }
@@ -122,7 +124,7 @@ class TransactionsPage {
    * Устанавливает заголовок: «Название счёта»
    * */
   clear() {
-    his.renderTransactions([]);
+    this.renderTransactions([]);
     this.renderTitle("Название счёта");
     this.lastOptions = undefined;
   }
@@ -194,10 +196,10 @@ class TransactionsPage {
   renderTransactions(data){
     const content = this.element.querySelector(".content");
     content.innerHTML = "";
-
-    data.forEach((item) => {
-      content.innerHTML += this.getTransactionHTML(item);
-    });
+    
+    data.reduce((sum,curr)=>{
+      content.innerHTML += this.getTransactionHTML(curr)
+    },0);
   
   }
 }
